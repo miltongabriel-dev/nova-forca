@@ -1,6 +1,10 @@
+/// <reference lib="esnext" />
+/// <reference lib="webworker" />
+
 import { defaultCache } from "@serwist/next/worker";
 import { Serwist } from "serwist";
 import type { PrecacheEntry, SerwistGlobalConfig } from "serwist";
+
 
 declare global {
   interface WorkerGlobalScope extends SerwistGlobalConfig {
