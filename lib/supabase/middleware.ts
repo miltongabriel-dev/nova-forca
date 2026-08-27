@@ -1,5 +1,5 @@
-import { createServerClient, type CookieOptions } from "@supabase/ssr";
 import { type NextRequest, NextResponse } from "next/server";
+import type { CookieOptions } from "@supabase/ssr";
 import type { Database } from "@/lib/types/database.types";
 
 export async function updateSession(request: NextRequest) {
@@ -11,6 +11,8 @@ export async function updateSession(request: NextRequest) {
   if (!supabaseUrl || !supabaseAnonKey) {
     return response;
   }
+
+  const { createServerClient } = await import("@supabase/ssr");
 
   const supabase = createServerClient<Database>(
     supabaseUrl,
